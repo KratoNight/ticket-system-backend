@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './entities/user';
+import { Company } from './entities/company';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           encrypt: false,
           enableArithAbort: true,
         },
-        entities: [],
+        entities: [User, Company],
         synchronize: true,
       }),
       inject: [ConfigService],
